@@ -9,8 +9,8 @@ The project have been deployed on [Heroku](https://herokuapp.com). You can try i
 
 ### Given tables:
 
-Tasks (id, name, status, project_id)
-Projects (id, name)
+* Tasks (id, name, status, project_id)
+* Projects (id, name)
 
 ### Technical requirements:
 
