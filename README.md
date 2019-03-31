@@ -5,14 +5,14 @@ At first you need to login to be able to create projects. If you don't have an a
 
 The project have been deployed on [Heroku](https://herokuapp.com). You can try it [there](https://jason-to-do-app.herokuapp.com).
 
-##SQL Task:
+## SQL Task:
 
-###Given tables:
+### Given tables:
 
-Tasks (id,name,status,project_id)
+Tasks (id, name, status, project_id)
 Projects (id, name)
 
-###Technical requirements:
+### Technical requirements:
 
 Get all statuses, not repeating, alphabetically ordered:
 ```sql
