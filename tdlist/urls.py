@@ -21,6 +21,8 @@ urlpatterns = [
 	path('edit_task/', edit_task),
 	path('prup/', prup),
 	path('prdown/', prdown),
+	path('task_date/', task_date),
+	path('project_date/', project_date),
     path('admin/', admin.site.urls),
 ] + staticfiles_urlpatterns()
 

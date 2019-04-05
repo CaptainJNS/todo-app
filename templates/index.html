@@ -6,6 +6,7 @@
 	<title>To-Do</title>
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
 	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="{% static 'js/scripts.js' %}"></script>
 </head>
@@ -47,8 +48,11 @@
 				<img src="{% static 'img/project.png' %}" alt="project" class="logo">
 				<span class="title list_id{{tdlist.id}}">{{tdlist.name}}</span>
 				<ul class="tools">
+					<li class="date">
+	                	<input type="date" project_id="{{tdlist.id}}" value="{{tdlist.deadline|date:'Y-m-d'}}">
+                    </li>
 					<li class = "edt"><img src="{% static 'img/edit.png' %}" class="edit listedit" alt="edit" list_id = "{{tdlist.id}}"></li>
-					<li class = "trsh"><img src="{% static 'img/trash.png' %}" class="trash listdelete" list_id = {{tdlist.id}} alt="trash"></li>
+					<li class = "trsh"><img src="{% static 'img/trash.png' %}" class="trash listdelete" list_id = "{{tdlist.id}}" alt="trash"></li>
 				</ul>
 			</div>
 
@@ -70,6 +74,9 @@
                             <span class="task_id{{task.id}}">{{ task.name }}</span>
                         
 						<ul class="tools">
+							<li class="date">
+                            	<input type="date" task_id="{{task.id}}" value="{{task.deadline|date:'Y-m-d'}}">
+                            </li>
                             <div class="priority">
                             <li class="up">
                                 <img src="{% static 'img/arrow.png' %}" class="priority prup" task_id="{{task.id}}" alt="up">

@@ -67,7 +67,12 @@ def add_task(request):
 def delete_task(request):
 	data = request.POST
 	ID = data.get('id')
-	Task.objects.get(id=ID).delete()
+	task = Task.objects.get(id=ID)
+	tasks = Task.objects.filter(priority__gt=task.priority)
+	for t in tasks:
+		t.priority -= 1
+		t.save()
+	task.delete()
 	return JsonResponse({'status': 'success'})
 
 def delete_list(request):
@@ -115,7 +120,8 @@ def prup(request):
 		return JsonResponse({'status': 'success',
 							'swapid': taskswap.id,
 							'swapname': taskswap.name,
-							'checked': taskswap.done})
+							'checked': taskswap.done,
+							'date':taskswap.deadline})
 	else:
 		print('fail')
 		return JsonResponse({'status':'fail'})
@@ -137,7 +143,24 @@ def prdown(request):
 		return JsonResponse({'status': 'success',
 							'swapid': taskswap.id,
 							'name': task.name,
-							'checked': task.done})
+							'checked': task.done,
+							'date':task.deadline})
 	else:
 		print('fail')
 		return JsonResponse({'status':'error'})
+
+def task_date(request):
+	data = request.POST
+	ID = data['id']
+	task = Task.objects.get(id=ID)
+	task.deadline = data['date']
+	task.save()
+	return JsonResponse({'status': 'success'})
+
+def project_date(request):
+	data = request.POST
+	ID = data['id']
+	project = TDList.objects.get(id=ID)
+	project.deadline = data['date']
+	project.save()
+	return JsonResponse({'status': 'success'})
