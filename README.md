@@ -7,7 +7,7 @@ The project have been deployed on [Heroku](https://herokuapp.com). You can try i
 
 ## Tests:
 
-For running test use 
+For running tests use 
 ```python
 python manage.py test
 ```
