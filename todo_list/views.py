@@ -46,9 +46,7 @@ def index(request):
 
 def change_status(request):	
 	data = request.POST
-	print("ID is:", data.get('id'))	
 	task = Task.objects.get(id=data.get('id'))
-	print(data.get('id'))
 	task.done = not task.done
 	task.save()
 	return JsonResponse({'status': 'success'})
@@ -78,7 +76,6 @@ def delete_task(request):
 def delete_list(request):
 	data = request.POST
 	ID = data.get('id')
-	print("HELLO")
 	project = TDList.objects.get(id=ID)
 	project.task.all().delete()
 	project.delete()
