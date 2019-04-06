@@ -5,6 +5,13 @@ At first you need to login to be able to create projects. If you don't have an a
 
 The project have been deployed on [Heroku](https://herokuapp.com). You can try it [there](https://jason-to-do-app.herokuapp.com).
 
+## Tests:
+
+For running test use 
+```python
+python manage.py test
+```
+
 ## SQL Task:
 
 ### Given tables:
